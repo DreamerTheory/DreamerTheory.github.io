@@ -2,144 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EntitySaver - Unity Save System Component</title>
-  <link rel="icon" href="/assets/fevicon.png" type="image/png" />
-  <style>
-    :root {
-      --accent-color: #3aa7ff;
-      --bg-color: #ffffff;
-      --text-color: #1c1c1c;
-      --subtext-color: #444;
-      --code-bg: #f3f4f6;
-      --border-color: #ddd;
-      --heading-color: #111;
-      --badge-bg: #eee;
-      --badge-text: #333;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Haptics - Unity Cross-Platform Haptic Feedback System</title>
+  <link rel="stylesheet" href="style.css">
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-color: #121212;
-        --text-color: #e5e5e5;
-        --subtext-color: #aaa;
-        --code-bg: #1e1e1e;
-        --border-color: #333;
-        --heading-color: #fff;
-        --badge-bg: #222;
-        --badge-text: #ccc;
-      }
-    }
-
-    body {
-      margin: 0;
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.7;
-      font-size: 16px;
-      padding: 40px 20px;
-    }
-
-    .container {
-      max-width: 860px;
-      margin: auto;
-      padding: 0 1rem;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      color: var(--heading-color);
-      margin-top: 2rem;
-      font-weight: 700;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 0.25rem;
-      margin-bottom: 1rem;
-    }
-
-    h3 {
-      font-size: 1.4rem;
-      margin-top: 1.5rem;
-    }
-
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    code,
-    pre {
-      font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-      background-color: var(--code-bg);
-      border-radius: 4px;
-    }
-
-    code {
-      font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-      background: var(--code-bg);
-      color: var(--text-color);
-      padding: 0.2em 0.4em;
-      border-radius: 4px;
-    }
-
-    pre {
-      background: var(--code-bg);
-      padding: 1em;
-      overflow-x: auto;
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-    }
-
-    ul,
-    ol {
-      margin-left: 1.5rem;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid var(--border-color);
-      margin: 2.5rem 0;
-    }
-
-    .badges {
-      margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .badges img {
-      height: 24px;
-    }
-
-    img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin: 1rem 0;
-      border: 1px solid var(--border-color);
-    }
-
-    .note {
-      font-size: 0.95rem;
-      color: var(--subtext-color);
-      margin-top: -0.5rem;
-    }
-  </style>
 </head>
 
 <body>
@@ -167,25 +34,25 @@
     </a>
   </div>
 
-    <hr />
+  <hr />
 
-    <h2>✨ Features</h2>
-    <ul>
-      <li>Assigns a unique GUID to each entity.</li>
-      <li>Automatically gathers all <code>ISaveable</code> components.</li>
-      <li>Supports saving/loading of multiple components' data.</li>
-      <li>Editor "Generate ID" button.</li>
-    </ul>
+  <h2>✨ Features</h2>
+  <ul>
+    <li>Assigns a unique GUID to each entity.</li>
+    <li>Automatically gathers all <code>ISaveable</code> components.</li>
+    <li>Supports saving/loading of multiple components' data.</li>
+    <li>Editor "Generate ID" button.</li>
+  </ul>
 
-    <h2>🔧 Installation</h2>
-    <ol>
-      <li>Open Unity.</li>
-      <li>Go to <strong>Window → Package Manager</strong>.</li>
-      <li>Click the <strong>+</strong> button → <em>Add package from Git URL…</em></li>
-      <li>Paste:
-        <pre><code>https://github.com/RahulLinganagoudra/com.dreamertheory.savingsystem.git</code></pre>
-      </li>
-    </ol>
+  <h2>🔧 Installation</h2>
+  <ol>
+    <li>Open Unity.</li>
+    <li>Go to <strong>Window → Package Manager</strong>.</li>
+    <li>Click the <strong>+</strong> button → <em>Add package from Git URL…</em></li>
+    <li>Paste:
+      <pre><code>https://github.com/RahulLinganagoudra/com.dreamertheory.savingsystem.git</code></pre>
+    </li>
+  </ol>
 
   <hr />
 
@@ -224,8 +91,8 @@
      └────────────────────────────┘
   </code></pre>
 
-    <h3>Implement <code>ISaveable</code></h3>
-    <pre><code>public interface ISaveable {
+  <h3>Implement <code>ISaveable</code></h3>
+  <pre><code>public interface ISaveable {
     string Save();
     void Load(string data);
 }
@@ -308,7 +175,8 @@
 }
   </code></pre>
   <p><code>SetData()</code> and <code>GetData()</code> are the functions provided in the package that will convert the
-    <code>string</code> to whatever the datatype you want.</p>
+    <code>string</code> to whatever the datatype you want.
+  </p>
   <p>Attach <code>EntitySaver</code> and <code>PlayerStats</code> to the same <code>GameObject</code>.</p>
 
   <h3>Saving and Loading</h3>
@@ -324,10 +192,10 @@ SavingSystem.Instance.Load();
     <li>
       Use this button to assign a unique ID to the GameObject.
       <p>
-        <img src="https://github.com/RahulLinganagoudra/MediaResources/blob/main/Screenshot%202025-05-15%20174244.png"
+        <img src="https://github.com/RahulLinganagoudra/MediaResources/blob/main/Screenshot%202025-05-15%20174244.png?raw=true"
           alt="Generate ID button" style="max-width:100%;height:auto;" />
         <br />
-        <img src="https://github.com/RahulLinganagoudra/MediaResources/blob/main/Screenshot%202025-05-15%20174250.png"
+        <img src="https://github.com/RahulLinganagoudra/MediaResources/blob/main/Screenshot%202025-05-15%20174250.png?raw=true"
           alt="EntitySaver inspector" style="max-width:100%;height:auto;" />
       </p>
     </li>
