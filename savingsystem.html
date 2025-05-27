@@ -2,309 +2,253 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EntitySaver - Unity Save System Component</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EntitySaver Documentation</title>
   <style>
-    /* Base colors for light and dark mode using CSS variables */
     :root {
+      --accent-color: #3aa7ff;
       --bg-color: #ffffff;
-      --text-color: #222222;
-      --link-color: #007acc;
-      --code-bg: #f5f5f5;
+      --text-color: #1c1c1c;
+      --subtext-color: #444;
+      --code-bg: #f3f4f6;
       --border-color: #ddd;
-      --heading-color: #111111;
+      --heading-color: #111;
       --badge-bg: #eee;
       --badge-text: #333;
-      --hr-color: #ccc;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
         --bg-color: #121212;
-        --text-color: #e0e0e0;
-        --link-color: #58a6ff;
+        --text-color: #e5e5e5;
+        --subtext-color: #aaa;
         --code-bg: #1e1e1e;
         --border-color: #333;
         --heading-color: #fff;
         --badge-bg: #222;
         --badge-text: #ccc;
-        --hr-color: #444;
       }
     }
 
     body {
+      margin: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      line-height: 1.6;
-      margin: 2rem;
-      max-width: 900px;
+      line-height: 1.7;
+      font-size: 16px;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: auto;
+      padding: 0 1rem;
     }
 
     h1, h2, h3, h4 {
       color: var(--heading-color);
-      font-weight: 600;
+      margin-top: 2rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.25rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin-top: 1.5rem;
     }
 
     a {
-      color: var(--link-color);
+      color: var(--accent-color);
       text-decoration: none;
     }
 
-    a:hover,
-    a:focus {
+    a:hover {
       text-decoration: underline;
     }
 
-    code, pre {
-      font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-      background-color: var(--code-bg);
-      border-radius: 4px;
-    }
-
-    code {
-      padding: 0.2em 0.4em;
-      font-size: 0.95em;
-    }
-
-    pre {
-      padding: 1em;
-      overflow-x: auto;
-      margin: 1em 0;
-      border: 1px solid var(--border-color);
+    p {
+      margin: 1rem 0;
+      color: var(--text-color);
     }
 
     ul, ol {
-      margin-left: 1.5rem;
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    code {
+      font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+      background: var(--code-bg);
+      color: var(--text-color);
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+    }
+
+    pre {
+      background: var(--code-bg);
+      padding: 1em;
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      margin: 1.5rem 0;
     }
 
     hr {
       border: none;
-      border-top: 1px solid var(--hr-color);
-      margin: 2rem 0;
+      border-top: 1px solid var(--border-color);
+      margin: 2.5rem 0;
     }
 
-    /* Badge style */
-    .badge {
-      display: inline-block;
-      padding: 0.25em 0.5em;
-      font-size: 0.8em;
-      font-weight: 600;
-      border-radius: 0.3em;
-      background-color: var(--badge-bg);
-      color: var(--badge-text);
-      margin-right: 0.5em;
-      vertical-align: middle;
-    }
-
-    /* Image badges container */
     .badges {
-      margin-bottom: 1rem;
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
-    /* Code blocks with language label */
-    pre code.hljs-keyword {
-      color: #00008b;
-      font-weight: bold;
+    .badges img {
+      height: 24px;
     }
 
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1rem 0;
+      border: 1px solid var(--border-color);
+    }
+
+    .note {
+      font-size: 0.95rem;
+      color: var(--subtext-color);
+      margin-top: -0.5rem;
+    }
   </style>
 </head>
 <body>
-  <h1 id="entitysaver-unity-save-system-component">EntitySaver - Unity Save System Component</h1>
-  <p>The <code>EntitySaver</code> component is part of a lightweight Unity saving system. It enables any GameObject to serialize and deserialize its state using attached <code>ISaveable</code> components. Each entity is uniquely identified with a persistent <code>EntityID</code>.
-    A lightweight save/load system for Unity that allows objects to register as saveable entities with unique persistent IDs.</p>
+  <div class="container">
+    <h1>EntitySaver</h1>
+    <p><code>EntitySaver</code> is a Unity component that allows any GameObject to serialize and deserialize its state using attached <code>ISaveable</code> components. It supports a lightweight, modular save/load system using adapters like local or cloud.</p>
 
-  <div class="badges">
-    <a href="https://unity.com/" class="badge" aria-label="Unity 2020 or higher">
-      <img src="https://img.shields.io/badge/Unity-2020%2B-white?logo=unity&labelColor=black" alt="Unity" />
-    </a>
-    <a href="https://opensource.org/licenses/MIT" class="badge" aria-label="License MIT">
-      <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" />
-    </a>
-    <a href="https://github.com/RahulLinganagoudra/com.dreamertheory.savingsystem" class="badge" aria-label="GitHub Repo stars">
-      <img src="https://img.shields.io/github/stars/RahulLinganagoudra/com.dreamertheory.savingsystem" alt="GitHub Repo stars" />
-    </a>
-    <a href="https://github.com/RahulLinganagoudra" class="badge" aria-label="Made with love">
-      <img src="https://img.shields.io/badge/made%20with-%E2%9D%A4-red" alt="Made With ❤️" />
-    </a>
-  </div>
+    <div class="badges">
+      <a href="https://unity.com/"><img src="https://img.shields.io/badge/Unity-2020%2B-white?logo=unity&labelColor=black" alt="Unity Version"></a>
+      <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+      <a href="https://github.com/RahulLinganagoudra/com.dreamertheory.savingsystem"><img src="https://img.shields.io/github/stars/RahulLinganagoudra/com.dreamertheory.savingsystem" alt="GitHub Stars"></a>
+      <a href="https://github.com/RahulLinganagoudra"><img src="https://img.shields.io/badge/made%20with-%E2%9D%A4-red" alt="Made with Love"></a>
+    </div>
 
-  <hr />
+    <hr />
 
-  <h2 id="-features">✨ Features</h2>
-  <ul>
-    <li>Assigns a unique GUID to each entity.</li>
-    <li>Automatically gathers all <code>ISaveable</code> components on the GameObject.</li>
-    <li>Supports saving and loading of multiple components' data.</li>
-    <li>Editor integration with a "Generate ID" button.</li>
-  </ul>
+    <h2>✨ Features</h2>
+    <ul>
+      <li>Assigns a unique GUID to each entity.</li>
+      <li>Automatically gathers all <code>ISaveable</code> components.</li>
+      <li>Supports saving/loading of multiple components' data.</li>
+      <li>Editor "Generate ID" button.</li>
+    </ul>
 
-  <hr />
+    <h2>🔧 Installation</h2>
+    <ol>
+      <li>Open Unity.</li>
+      <li>Go to <strong>Window → Package Manager</strong>.</li>
+      <li>Click the <strong>+</strong> button → <em>Add package from Git URL…</em></li>
+      <li>Paste:
+        <pre><code>https://github.com/RahulLinganagoudra/com.dreamertheory.savingsystem.git</code></pre>
+      </li>
+    </ol>
 
-  <h2 id="-installation">🔧 Installation</h2>
-  <h4 id="steps">Steps</h4>
-  <ol>
-    <li>Open Unity.</li>
-    <li>Go to Window → Package Manager.</li>
-    <li>Click the + button (top-left).</li>
-    <li>Choose “Add package from Git URL…”.</li>
-    <li>Paste the following URL:<br />
-      <code>https://github.com/RahulLinganagoudra/com.dreamertheory.savingsystem.git</code>
-    </li>
-  </ol>
+    <h2>📦 Usage</h2>
+    <p>This system uses an adapter pattern to allow different save backends:</p>
 
-  <hr />
-
-  <h3 id="usage">Usage</h3>
-  <p>This saving system uses an adapter pattern to allow switching between local, cloud, or other saving strategies easily.</p>
-  <pre><code>     
-     ┌────────────────────┐
-     │    GameObject      │
-     │  (with components) │
-     └────────┬───────────┘
-              │
-              ▼
-     ┌────────────────────┐
-     │   EntitySaver.cs   │ ◄────── Generates and holds unique EntityID
-     └────────┬───────────┘
-              │
-              ▼
-     ┌────────────────────┐
-     │   ISaveable[]      │ ◄────── All attached ISaveable components
-     └────────┬───────────┘
-              │
-              ▼
-     ┌────────────────────────────┐
-     │     Save / Load Request    │
-     └────────┬──────────┬────────┘
-              │          │
-      ┌───────▼───┐  ┌───▼────────┐
-      │ LocalSave │  │ CloudSave  │   ◄──── Pluggable Adapters (via ISaveSystem)
-      │  System   │  │  System    │
-      └───────────┘  └────────────┘
-              │
-              ▼
-     ┌────────────────────────────┐
-     │  FileSystem / Server API   │
-     └────────────────────────────┘
-  </code></pre>
-
-  <pre><code>1. Implement the ISaveable Interface 
-Each component that needs to be saved must implement:
-
-public interface ISaveable
-{
-    string Save();
-    void Load(string data);
-}
+    <pre><code>GameObject
+ └── EntitySaver
+      └── ISaveable[] Components
+           └── Save/Load
+                ├── LocalSaveSystem
+                └── CloudSaveSystem
 </code></pre>
 
-  <p>Add this to any script whose state you want saved.</p>
+    <h3>Implement <code>ISaveable</code></h3>
+    <pre><code>public interface ISaveable {
+    string Save();
+    void Load(string data);
+}</code></pre>
 
-  <ol>
-    <li>
-      <p><strong>Add the EntitySaver Component</strong><br />
-      Attach the EntitySaver component to any GameObject. It will automatically:</p>
-      <ul>
-        <li>Assign a unique EntityID.</li>
-        <li>Find and cache all ISaveable components.</li>
-        <li>Delegate save/load operations to each of them.</li>
-      </ul>
-    </li>
-    <li>
-      <p><strong>Saving &amp; Loading with a Save System Adapter</strong><br />
-      Instead of directly saving data, your logic should go through an ISaveSystem:</p>
-      <pre><code>public interface ISaveSystem
-{
+    <h3>Add EntitySaver</h3>
+    <ul>
+      <li>Attach <code>EntitySaver</code> to the GameObject.</li>
+      <li>It will collect all <code>ISaveable</code> components.</li>
+      <li>It delegates Save/Load to them.</li>
+    </ul>
+
+    <h3>Save System Adapter</h3>
+    <pre><code>public interface ISaveSystem {
     void SaveData(string key, string value, Action&lt;bool&gt; callback);
     void LoadData(string key, Action&lt;string&gt; callback);
-}
-      </code></pre>
-      <p>You can use the Local saving system included in the package:</p>
-      <pre><code>public class LocalSaveSystem : MonoBehaviour, ISaveSystem
-{
-    // Saves to Application.persistentDataPath/key.json
-    public void SaveData(string key, string value, Action&lt;bool&gt; callback) { /* ... */ }
+}</code></pre>
 
-    // Loads from key.json if exists
-    public void LoadData(string key, Action&lt;string&gt; callback) { /* ... */ }
-}
-      </code></pre>
-      <p>This saves data locally at:<br />
-      <code>%APPDATA%/../LocalLow/&lt;Company&gt;/&lt;Project&gt;/key.json</code></p>
-    </li>
-  </ol>
+    <p>Use built-in <code>LocalSaveSystem</code>:</p>
+    <pre><code>public class LocalSaveSystem : MonoBehaviour, ISaveSystem {
+    public void SaveData(string key, string value, Action&lt;bool&gt; callback) { ... }
+    public void LoadData(string key, Action&lt;string&gt; callback) { ... }
+}</code></pre>
 
-  <h3 id="prefab-setup-example">Prefab Setup Example</h3>
-  <p>You can use EntitySaver on any prefab that needs to be saved/loaded. Here's a common use-case:</p>
-  <ul>
-    <li>
-      Player
-      <ul>
-        <li>EntitySaver component</li>
-        <li>PlayerStats (implements ISaveable)</li>
-        <li>Inventory (implements ISaveable)</li>
-      </ul>
-    </li>
-  </ul>
-  <p>Each component manages its own data, while EntitySaver coordinates saving/loading.</p>
+    <p class="note">Saved to <code>%APPDATA%/../LocalLow/&lt;Company&gt;/&lt;Project&gt;/</code></p>
 
-  <h3 id="example">Example</h3>
-  <pre><code>public class PlayerStats : MonoBehaviour, ISaveable
-{
-    [System.Serializable]
-    struct BigData
-    {
+    <h2>📁 Prefab Setup</h2>
+    <ul>
+      <li><strong>Player</strong>
+        <ul>
+          <li>EntitySaver</li>
+          <li>PlayerStats (ISaveable)</li>
+          <li>Inventory (ISaveable)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>Example</h3>
+    <pre><code>public class PlayerStats : MonoBehaviour, ISaveable {
+    struct BigData {
         public int num1;
         public float num2;
         public string name;
     }
-    [SerializeField]
+
     int num1 = 0;
-    [SerializeField]
     float num2 = 2;
 
-    void ISaveable.Load(string data)
-    {
+    void ISaveable.Load(string data) {
         BigData save = data.GetData&lt;BigData&gt;();
         num1 = save.num1;
         num2 = save.num2;
     }
 
-    string ISaveable.Save()
-    {
-        return new BigData() { num1 = num1, num2 = num2, name = "" }.SetData();
+    string ISaveable.Save() {
+        return new BigData { num1 = num1, num2 = num2 }.SetData();
     }
-}
-  </code></pre>
-  <p><code>SetData()</code> and <code>GetData()</code> are the functions provided in the package that will convert the <code>string</code> to whatever the datatype you want.</p>
-  <p>Attach <code>EntitySaver</code> and <code>PlayerStats</code> to the same <code>GameObject</code>.</p>
+}</code></pre>
 
-  <h3>Saving and Loading</h3>
-  <p>Use the <code>Save()</code> and <code>Load()</code> methods of <code>EntitySaver</code> to serialize or deserialize:</p>
-  <pre><code>SavingSystem.Instance.Save();
-SavingSystem.Instance.Load();
-  </code></pre>
+    <h3>Saving and Loading</h3>
+    <pre><code>SavingSystem.Instance.Save();
+SavingSystem.Instance.Load();</code></pre>
 
-  <h3 id="editor-integration">Editor Integration</h3>
-  <p>The editor script adds a "Generate ID" button in the Inspector for the EntitySaver component.</p>
-  <ul>
-    <li>
-      Use this button to assign a unique ID to the GameObject.
-      <p>
-        <img src="https://github.com/RahulLinganagoudra/MediaResources/blob/main/Screenshot%202025-05-15%20174244.png" alt="Generate ID button" style="max-width:100%;height:auto;" />
-        <br />
-        <img src="https://github.com/RahulLinganagoudra/MediaResources/blob/main/Screenshot%202025-05-15%20174250.png" alt="EntitySaver inspector" style="max-width:100%;height:auto;" /></p>
-    </li>
-    <li>
-      Required if you want to reference this object persistently across sessions.
-    </li>
-  </ul>
+    <h2>🛠 Editor Integration</h2>
+    <p>Click <strong>Generate ID</strong> in the inspector:</p>
+    <img src="https://github.com/RahulLinganagoudra/MediaResources/blob/main/Screenshot%202025-05-15%20174244.png" alt="Generate ID">
+    <img src="https://github.com/RahulLinganagoudra/MediaResources/blob/main/Screenshot%202025-05-15%20174250.png" alt="EntitySaver Inspector">
 
-  <h3 id="notes">Notes</h3>
-  <p>The EntityID is serialized and can be generated via the button or programmatically.</p>
-  <p><strong>Do not modify EntityID at runtime unless you know what you're doing — it may break save data consistency.</strong></p>
+    <h3>⚠️ Note</h3>
+    <p><strong>Don't change <code>EntityID</code> at runtime</strong> unless you're managing the consequences.</p>
+  </div>
 </body>
 </html>
