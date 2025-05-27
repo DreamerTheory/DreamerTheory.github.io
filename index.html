@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧰 DreamerTheory Unity Packages</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #222;
+            --subtext-color: #555;
+            --header-bg: #1e1e1e;
+            --header-text: #ffffff;
+            --header-subtext: #ccc;
+            --card-bg: #ffffff;
+            --card-text: #222;
+            --card-subtext: #555;
+            --card-shadow: rgba(0, 0, 0, 0.08);
+            --card-shadow-hover: rgba(0, 0, 0, 0.15);
+            --footer-color: #777;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1e1e1e;
+                --text-color: #eaeaea;
+                --subtext-color: #bbb;
+                --header-bg: #111;
+                --header-text: #ffffff;
+                --header-subtext: #888;
+                --card-bg: #2a2a2a;
+                --card-text: #eaeaea;
+                --card-subtext: #aaa;
+                --card-shadow: rgba(0, 0, 0, 0.3);
+                --card-shadow-hover: rgba(0, 0, 0, 0.45);
+                --footer-color: #999;
+            }
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background: var(--header-bg);
+            color: var(--header-text);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--header-subtext);
+        }
+
+        .container {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px var(--card-shadow);
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--card-text);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 14px var(--card-shadow-hover);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            color: var(--card-text);
+        }
+
+        .card p {
+            color: var(--card-subtext);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 2rem;
+            color: var(--footer-color);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>🧰 DreamerTheory Unity Docs</h1>
+        <p>Documentation hub for DreamerTheory Unity packages</p>
+    </header>
+
+    <div class="container">
+        <h2>📦 Available Packages</h2>
+        <div class="card-grid">
+
+            <!-- GridSystem Link -->
+            <a class="card" href="gridsystem.html">
+                <h2>🧮 DT.GridSystem</h2>
+                <p>Generic 2D/3D grid framework with coordinate conversion, events, and debugging.</p>
+            </a>
+<a class="card" href="savingsystem.html">
+                <h2>🧮 DT.Saving System</h2>
+                <p>Easy way to save and load using json based saving. Supports adapter, use adpter to easily swap to cloud save</p>
+            </a>
+            <!-- Future cards go here -->
+            <!--
+      <a class="card" href="anotherpackage.html">
+        <h2>🧠 DT.AIController</h2>
+        <p>Modular behavior controller for AI agents with task-based structure.</p>
+      </a>
+      -->
+
+        </div>
+    </div>
+
+    <footer>
+        DreamerTheory © 2025 — All packages open-source under MIT License
+    </footer>
+
+</body>
+
+</html>

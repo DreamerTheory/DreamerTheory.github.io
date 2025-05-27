@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DT.GridSystem Unity Manual</title>
+  <style>
+    :root {
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+      --heading-color: #2c3e50;
+      --code-bg: #eee;
+      --pre-bg: #272822;
+      --pre-text: #f8f8f2;
+      --blockquote-bg: #e8f5e9;
+      --blockquote-border: #66bb6a;
+      --table-border: #ccc;
+      --link-color: #007acc;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #1e1e1e;
+        --text-color: #ddd;
+        --heading-color: #ffffff;
+        --code-bg: #2d2d2d;
+        --pre-bg: #2d2d2d;
+        --pre-text: #f8f8f2;
+        --blockquote-bg: #2e3c2f;
+        --blockquote-border: #66bb6a;
+        --table-border: #444;
+        --link-color: #80bfff;
+      }
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: auto;
+      padding: 40px;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--heading-color);
+    }
+
+    h1 {
+      border-bottom: 2px solid var(--table-border);
+      padding-bottom: 0.3em;
+    }
+
+    pre {
+      background: var(--pre-bg);
+      color: var(--pre-text);
+      padding: 1em;
+      overflow-x: auto;
+      border-radius: 6px;
+    }
+
+    code {
+      background: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+    }
+
+    blockquote {
+      background: var(--blockquote-bg);
+      padding: 1em;
+      border-left: 5px solid var(--blockquote-border);
+      font-style: italic;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1em;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid var(--table-border);
+    }
+
+    th {
+      background-color: var(--code-bg);
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--table-border);
+      margin: 2em 0;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1>🧮 DT.GridSystem Unity Manual</h1>
+
+  <p>A comprehensive guide to the <strong>DT.GridSystem</strong> — a generic Unity grid framework supporting both 2D
+    (XY) and 3D (XZ) layouts.<br>
+    This manual covers architecture, usage, and function-by-function documentation with clarity.</p>
+
+  <p>
+    <span class="badge"><a href="https://unity.com/"><img
+          src="https://img.shields.io/badge/Unity-2020%2B-white?logo=unity&labelColor=black" alt="Unity"></a></span>
+    <span class="badge"><a href="https://opensource.org/licenses/MIT"><img
+          src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License"></a></span>
+    <span class="badge"><a href="https://github.com/RahulLinganagoudra/com.dreamertheory.gridsystem"><img
+          src="https://img.shields.io/github/stars/RahulLinganagoudra/com.dreamertheory.gridsystem"
+          alt="GitHub stars"></a></span>
+    <span class="badge"><a href="https://github.com/RahulLinganagoudra"><img
+          src="https://img.shields.io/badge/made%20with-%E2%9D%A4-red" alt="Made With ❤️"></a></span>
+  </p>
+
+  <hr>
+
+  <h2>📚 Table of Contents</h2>
+  <ol>
+    <li><a href="#introduction">📘 Introduction</a></li>
+    <li><a href="#concepts--architecture">🧩 Concepts & Architecture</a></li>
+    <li><a href="#installation">📦 Installation</a></li>
+    <li><a href="#how-it-works">🔧 How It Works</a></li>
+    <li><a href="#getting-started">🚀 Getting Started</a></li>
+    <li><a href="#core-classes">🏗️ Core Classes</a></li>
+    <li><a href="#api-reference">🛠️ API Reference</a></li>
+    <li><a href="#usage-examples">🧪 Usage Examples</a></li>
+    <li><a href="#best-practices">💡 Best Practices</a></li>
+    <li><a href="#faq">❓ FAQ</a></li>
+    <li><a href="#license">📄 License</a></li>
+  </ol>
+
+  <hr>
+
+  <h2 id="introduction">📘 Introduction</h2>
+  <p>Welcome to <strong>DT.GridSystem</strong>, a flexible and extensible system for managing 2D and 3D grids in Unity.
+  </p>
+  <blockquote>
+    🧠 <strong>Use Cases:</strong><br>
+    Turn-based tile games, AI navigation maps, level editors, placement systems, and more.
+  </blockquote>
+
+  <h3>✅ Features</h3>
+  <ul>
+    <li>✅ Generic base class (<code>GridSystem&lt;T&gt;</code>)</li>
+    <li>✅ Seamless grid ↔ world conversion</li>
+    <li>✅ Supports XY (2D) and XZ (3D) layouts</li>
+    <li>✅ UnityEvent-based change notifications</li>
+    <li>✅ Built-in debug gizmo drawing</li>
+  </ul>
+
+  <hr>
+
+  <h2 id="concepts--architecture">🧩 Concepts & Architecture</h2>
+  <p>DT.GridSystem is structured into 3 clean layers:</p>
+  <table>
+    <tr>
+      <th>Layer</th>
+      <th>Responsibility</th>
+    </tr>
+    <tr>
+      <td><strong>Storage</strong></td>
+      <td>Holds a 2D array of <code>TGridObject</code></td>
+    </tr>
+    <tr>
+      <td><strong>Conversion</strong></td>
+      <td>Grid ↔ World position translation</td>
+    </tr>
+    <tr>
+      <td><strong>Utilities</strong></td>
+      <td>Snapping, debug visualization, events</td>
+    </tr>
+  </table>
+
+  <pre><code>graph TD;
+    A[GridSystem&lt;T&gt;] --> B[GridSystem2D&lt;T&gt;]
+    A --> C[GridSystem3D&lt;T&gt;]
+    B --> D[Your2DGridScript]
+    C --> E[Your3DGridScript]</code></pre>
+
+  <hr>
+
+  <h2 id="installation">📦 Installation</h2>
+
+  <h3>✅ Option 1: Unity Package (Recommended)</h3>
+  <ol>
+    <li>Open your Unity project.</li>
+    <li>Go to <code>Window → Package Manager</code>.</li>
+    <li>Click the <strong>+</strong> button → <strong>Add package from Git URL…</strong></li>
+    <li>Enter the URL:</li>
+  </ol>
+  <pre><code>https://github.com/RahulLinganagoudra/com.dreamertheory.gridsystem.git</code></pre>
+  <p>Click <strong>Add</strong> and Unity will install the package automatically.</p>
+  <blockquote>☝️ Make sure your repo has a <code>package.json</code> in the root or under
+    <code>Packages/DT.GridSystem</code>.</blockquote>
+
+  <h3>🛠 Option 2: Manual Import</h3>
+  <ol>
+    <li>Download or clone the repo:</li>
+  </ol>
+  <pre><code>git clone https://github.com/RahulLinganagoudra/com.dreamertheory.gridsystem.git</code></pre>
+  <p>Copy the DT.GridSystem folder into your Unity project’s <code>Assets</code> directory.</p>
+
+  <hr>
+
+  <h2 id="how-it-works">🔧 How It Works</h2>
+  <h3>🗃️ Grid Array</h3>
+  <pre><code>TGridObject[,] gridArray = new TGridObject[width, height];</code></pre>
+
+  <h3>⚙️ Initialization</h3>
+  <ul>
+    <li>Allocates the array on <code>Awake()</code></li>
+    <li>Calls your overridden <code>CreateGridObject(...)</code> per cell</li>
+  </ul>
+
+  <h3>🔄 Add / Remove / Get</h3>
+  <ul>
+    <li><code>AddGridObject(int x, int y, T value)</code></li>
+    <li><code>RemoveGridObject(int x, int y)</code></li>
+    <li><code>GetGridObject(int x, int y)</code></li>
+    <li><code>GetGridObject(Vector3 worldPos)</code></li>
+    <li><code>TryGetGridObject(...)</code> for safe retrieval</li>
+  </ul>
+
+  <h3>🌍 Grid ↔ World Conversion</h3>
+  <ul>
+    <li><code>GetWorldPosition(int x, int y)</code></li>
+    <li><code>GetGridPosition(Vector3 worldPos)</code></li>
+  </ul>
+
+  <h3>🎯 Visualization</h3>
+  <ul>
+    <li>Draws grid lines in <code>OnDrawGizmos()</code></li>
+    <li>Extendable with custom markers</li>
+    <li>Toggle <code>drawGizmos</code> to control</li>
+  </ul>
+
+  <h3>📢 Events</h3>
+  <pre><code>UnityEvent OnGridUpdated</code></pre>
+  <p>Fired on any grid update.</p>
+
+  <hr>
+
+  <h2 id="getting-started">🚀 Getting Started</h2>
+  <ol>
+    <li>Add <code>DT.GridSystem</code> to your project</li>
+    <li>Inherit <code>GridSystem2D&lt;T&gt;</code> or <code>GridSystem3D&lt;T&gt;</code></li>
+    <li>Override:</li>
+  </ol>
+  <pre><code>protected override T CreateGridObject(GridSystem&lt;T&gt; grid, int x, int y)</code></pre>
+  <ul>
+    <li>Set Grid Size, Cell Size, Enable Gizmos</li>
+    <li>Run your scene!</li>
+  </ul>
+
+  <hr>
+
+  <h2 id="core-classes">🏗️ Core Classes</h2>
+  <table>
+    <tr>
+      <th>Class</th>
+      <th>Purpose</th>
+    </tr>
+    <tr>
+      <td><code>GridSystem&lt;T&gt;</code></td>
+      <td>Abstract base for all grids</td>
+    </tr>
+    <tr>
+      <td><code>GridSystem2D&lt;T&gt;</code></td>
+      <td>2D implementation</td>
+    </tr>
+    <tr>
+      <td><code>GridSystem3D&lt;T&gt;</code></td>
+      <td>3D implementation</td>
+    </tr>
+  </table>
+
+  <!-- Additional sections (API Reference, Usage Examples, etc.) can be included similarly -->
+
+  <hr>
+  <h2 id="license">📄 License</h2>
+  <p>MIT License — Free to use, modify, and distribute.<br>Pull requests and attribution are welcome but not required.
+  </p>
+
+</body>
+
+</html>
