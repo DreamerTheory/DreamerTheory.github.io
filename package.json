@@ -10,9 +10,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist",
+    "postbuild": "cp dist/index.html dist/404.html"
   },
-  "postbuild": "cp dist/index.html dist/404.html",
   "homepage": "https://dreamertheory.github.io/dreamertheory.github.io/",
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

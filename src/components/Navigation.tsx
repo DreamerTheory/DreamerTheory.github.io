@@ -29,7 +29,7 @@ export const Navigation = () => {
           <div className="flex items-center space-x-2 sm:space-x-3">
             <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-2xl overflow-hidden devil-shadow animate-wiggle">
               <img
-                src="/lovable-uploads/231f49f5-e747-47e2-a87f-b3c03c0b414f.png"
+                src={`${import.meta.env.BASE_URL}lovable-uploads/231f49f5-e747-47e2-a87f-b3c03c0b414f.png`}
                 alt="DreamerTheory Logo"
                 className="w-full h-full object-cover"
               />
