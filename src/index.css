@@ -1,0 +1,178 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 179 29 29;
+    --foreground: 0 0 0;
+
+    --card: 139 21 21;
+    --card-foreground: 255 255 255;
+
+    --popover: 139 21 21;
+    --popover-foreground: 255 255 255;
+
+    --primary: 179 29 29;
+    --primary-foreground: 255 255 255;
+
+    --secondary: 76 29 29;
+    --secondary-foreground: 255 255 255;
+
+    --muted: 139 21 21;
+    --muted-foreground: 200 200 200;
+
+    --accent: 220 38 38;
+    --accent-foreground: 255 255 255;
+
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+
+    --border: 76 29 29;
+    --input: 76 29 29;
+    --ring: 179 29 29;
+
+    --radius: 1rem;
+
+    --sidebar-background: 179 29 29;
+    --sidebar-foreground: 255 255 255;
+    --sidebar-primary: 179 29 29;
+    --sidebar-primary-foreground: 255 255 255;
+    --sidebar-accent: 139 21 21;
+    --sidebar-accent-foreground: 255 255 255;
+    --sidebar-border: 76 29 29;
+    --sidebar-ring: 179 29 29;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-devil-red text-foreground font-inter;
+    background: linear-gradient(135deg, #B31D1D 0%, #8B1515 50%, #4C1D1D 100%);
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #FFD700;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkle 3s ease-in-out infinite;
+    box-shadow: 0 0 6px #FFD700;
+  }
+
+  .particle:nth-child(odd) {
+    animation-delay: 1s;
+    background: #FF6B6B;
+    box-shadow: 0 0 6px #FF6B6B;
+  }
+
+  .particle:nth-child(3n) {
+    animation-delay: 2s;
+    background: #FFA500;
+    box-shadow: 0 0 6px #FFA500;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3);
+  }
+
+  .glass-card {
+    background: rgba(76, 29, 29, 0.8);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .devil-shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 40px rgba(179, 29, 29, 0.2);
+  }
+
+  .mischief-button {
+    background: linear-gradient(135deg, #B31D1D, #8B1515);
+    border: 2px solid #000;
+    transform: perspective(1px) translateZ(0);
+    transition: all 0.3s ease;
+  }
+
+  .mischief-button:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Responsive text utilities */
+  .responsive-text-xs {
+    @apply text-xs sm:text-sm md:text-base;
+  }
+
+  .responsive-text-sm {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+
+  .responsive-text-base {
+    @apply text-base sm:text-lg md:text-xl;
+  }
+
+  .responsive-text-lg {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+
+  .responsive-text-xl {
+    @apply text-xl sm:text-2xl md:text-3xl;
+  }
+
+  .responsive-text-2xl {
+    @apply text-2xl sm:text-3xl md:text-4xl;
+  }
+
+  .responsive-text-3xl {
+    @apply text-3xl sm:text-4xl md:text-5xl;
+  }
+
+  .responsive-text-4xl {
+    @apply text-4xl sm:text-5xl md:text-6xl;
+  }
+
+  .responsive-text-5xl {
+    @apply text-5xl sm:text-6xl md:text-7xl;
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  75% { transform: rotate(-1deg); }
+}
