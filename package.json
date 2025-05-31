@@ -12,6 +12,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
+  "postbuild": "cp dist/index.html dist/404.html",
   "homepage": "https://dreamertheory.github.io/dreamertheory.github.io/",
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
