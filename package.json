@@ -13,7 +13,7 @@
     "deploy": "gh-pages -d dist",
     "postbuild": "cp dist/index.html dist/404.html"
   },
-  "homepage": "https://dreamertheory/dreamertheory.github.io/",
+  "homepage": "https://dreamertheory.github.io/dreamertheory.github.io/",
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.0",
