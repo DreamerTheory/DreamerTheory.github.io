@@ -2,32 +2,18 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Star, Clock, Users } from 'lucide-react';
+import { link } from 'fs';
 
 const games = [
   {
-    title: "Ethereal Kingdoms",
-    description: "A mystical adventure through floating realms where gravity bends to your will and ancient secrets await discovery.",
-    image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=600&h=400&fit=crop",
-    status: "Released",
-    rating: 4.8,
-    playtime: "25+ hours"
-  },
-  {
-    title: "Starfall Chronicles",
-    description: "Navigate through collapsing star systems as the last guardian of cosmic balance in this narrative-driven space odyssey.",
-    image: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=600&h=400&fit=crop",
-    status: "Coming Soon",
-    rating: null,
-    playtime: "40+ hours"
-  },
-  {
-    title: "The Dreaming City",
-    description: "Uncover the mysteries of a city that exists between dreams and reality, where every choice shapes the world around you.",
-    image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600&h=400&fit=crop",
+    title: "WILDLIGHT CAMP",
+    description: "WILDLIGHT CAMP is a cozy simulation game where intelligent animals build, gather, and protect a wild forest camp.",
+    image: `${import.meta.env.BASE_URL}lovable-uploads/Wildlight-Camp splash.png`,
     status: "In Development",
     rating: null,
-    playtime: "30+ hours"
-  }
+    playtime: "25+ hours",
+    link: "https://www.youtube.com/watch?v=2qcC6elLbk8&list=PLUYNufBU4WRPw6QA87xRTgk0-0PoxhCQv"
+  } 
 ];
 
 export const FeaturedGames = () => {
@@ -97,6 +83,7 @@ export const FeaturedGames = () => {
                 <Button 
                   className="w-full mischief-button text-white font-bold py-3 rounded-full hover:scale-105 transition-all duration-300"
                   variant="outline"
+                  onClick={() => window.open(game.link, '_blank')}
                 >
                   {game.status === 'Released' ? 'Play Now 🎮' : 'Learn More 👀'}
                 </Button>

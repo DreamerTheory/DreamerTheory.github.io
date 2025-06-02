@@ -1,7 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Mail, Github, Twitter, MapPin } from 'lucide-react';
+import { Mail, Github, Twitter, MapPin, Youtube } from 'lucide-react';
 
 export const ContactSection = () => {
   return (
@@ -53,7 +53,16 @@ export const ContactSection = () => {
                     variant="outline"
                     size="sm"
                     className="border-devil-gold/30 hover:border-devil-gold/50 text-devil-gold hover:text-white rounded-full mischief-button"
-                   onClick={() => window.open('https://x.com/Linganagou6097', '_blank')}
+                    onClick={() => window.open('https://www.youtube.com/@DreamerTheoryIndia', '_blank')}
+                  >
+                    <Youtube size={16} className="mr-2" />
+                    Youtube
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="border-devil-gold/30 hover:border-devil-gold/50 text-devil-gold hover:text-white rounded-full mischief-button"
+                    onClick={() => window.open('https://x.com/Linganagou6097', '_blank')}
                   >
                     <Twitter size={16} className="mr-2" />
                     Twitter
@@ -90,8 +99,8 @@ export const ContactSection = () => {
                   className="w-full px-4 py-3 bg-devil-red-darker/50 border-2 border-devil-red/30 rounded-full text-white placeholder-gray-300 focus:outline-none focus:border-devil-gold/50 transition-colors"
                 />
                 <Button
-                onClick={() => window.open('mailto:dreamertheory.india@gmail.com', '_blank')}
-               className="w-full mischief-button text-white font-bold py-4 rounded-full hover:scale-105 transition-all duration-300 devil-shadow"
+                  onClick={() => window.open('mailto:dreamertheory.india@gmail.com', '_blank')}
+                  className="w-full mischief-button text-white font-bold py-4 rounded-full hover:scale-105 transition-all duration-300 devil-shadow"
                 >
                   Subscribe to Updates 🚀
                 </Button>

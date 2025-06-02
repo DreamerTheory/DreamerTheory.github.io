@@ -60,7 +60,7 @@ export const Navigation = () => {
               Contact
             </button>
             <button
-              onClick={() => window.open('/gridsystem.html', '_blank')}
+              onClick={() => window.open(`${import.meta.env.BASE_URL}DocumentationHome.html`, '_blank')}
               className="text-white hover:text-devil-gold transition-colors font-semibold text-sm lg:text-base"
             >
               Documentation

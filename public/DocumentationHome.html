@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DreamerTheory Unity Packages</title>
+  <style>
+    :root {
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+      --heading-color: #2c3e50;
+      --card-bg: #fff;
+      --card-border: #ddd;
+      --link-color: #007acc;
+      --code-bg: #eee;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #1e1e1e;
+        --text-color: #ddd;
+        --heading-color: #ffffff;
+        --card-bg: #2a2a2a;
+        --card-border: #444;
+        --link-color: #80bfff;
+        --code-bg: #3a3a3a;
+      }
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      line-height: 1.6;
+      margin: auto;
+      padding: 40px;
+      max-width: 1200px;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--heading-color);
+    }
+
+    .header-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      border-bottom: 2px solid var(--card-border);
+      padding-bottom: 0.3em;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .package-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .package-card:hover {
+      transform: translateY(-2px);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--card-border);
+      margin: 2em 0;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header-container">
+    <img src="lovable-uploads/231f49f5-e747-47e2-a87f-b3c03c0b414f.png" alt="DreamerTheory Logo" class="logo">
+    <h1>📦 DreamerTheory Unity Packages</h1>
+    <p class="subtitle">Welcome to the documentation hub for DreamerTheory's modular Unity packages. Explore each
+      system, their manuals, and API references below.</p>
+  </div>
+
+  <div class="grid-container">
+    <div class="package-card">
+      <h2>🧮 DT.GridSystem</h2>
+      <p>A generic Unity grid framework that supports both 2D (XY) and 3D (XZ) layouts.</p>
+      <ul>
+        <li><a href="gridsystem.html" type="_blank">📘 View DT.GridSystem Manual</a></li>
+      </ul>
+    </div>
+    <div class="package-card">
+      <h2>🎯 DT.Saving System</h2>
+      <p>JSON based saving system that uses adapter to make your saving modular</p>
+      <ul>
+        <li><a href="savingsystem.html" type="_blank">📘 View DT.Savingsystem Manual</a></li>
+      </ul>
+    </div>
+
+    <div class="package-card">
+      <h2>🎯 DT.Haptics</h2>
+      <p>Easy way to add haptics into your mobile Game.</p>
+      <ul>
+        <li><a href="haptics.html" type="_blank">📘 View DT.Haptics Manual</a></li>
+      </ul>
+    </div>
+
+    <!-- Add more package cards here -->
+    <!-- Just copy and paste .package-card blocks inside .grid-container -->
+  </div>
+
+  <hr>
+  <p>© 2025 DreamerTheory — Built for Unity developers by <a href="https://github.com/RahulLinganagoudra">Rahul
+      Linganagoudra</a></p>
+
+</body>
+
+</html>
