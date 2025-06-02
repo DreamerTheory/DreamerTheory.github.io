@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Haptics - Unity Cross-Platform Haptic Feedback System</title>
+ <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<a href="/" class="home-button">
+  🏠 Home
+</a>
+
+<h1>Haptics - Unity Cross-Platform Haptic Feedback System</h1>
+
+<p>
+  The <code>Haptics</code> component provides a simple, cross-platform wrapper for triggering native haptic feedback on iOS and Android devices. It allows developers to trigger <strong>low</strong>, <strong>medium</strong>, <strong>heavy</strong>, and <strong>super heavy</strong> feedback with a single static method call.
+</p>
+
+<div class="badges">
+  <a href="https://unity.com/"><img src="https://img.shields.io/badge/Unity-2020%2B-white?logo=unity&labelColor=black" alt="Unity 2020+"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License"></a>
+  <a href="https://github.com/RahulLinganagoudra/com.dreamertheory.haptics"><img src="https://img.shields.io/github/stars/RahulLinganagoudra/com.dreamertheory.haptics" alt="GitHub Repo stars"></a>
+  <a href="https://github.com/RahulLinganagoudra"><img src="https://img.shields.io/badge/made%20with-%E2%9D%A4-red" alt="Made with Love"></a>
+</div>
+
+<hr>
+
+<h2>✨ Features</h2>
+<ul>
+  <li>One-line API to trigger device-native haptic feedback.</li>
+  <li>Auto-platform detection (iOS / Android).</li>
+  <li>Optional toggle to enable/disable haptics globally.</li>
+  <li>Uses native iOS and Android APIs under the hood.</li>
+  <li>Fallback to <code>Handheld.Vibrate()</code> for super-heavy feedback.</li>
+</ul>
+
+<hr>
+
+<h2>🔧 Installation</h2>
+<h3>Steps</h3>
+<ol>
+  <li>Open Unity.</li>
+  <li>Go to <strong>Window → Package Manager</strong>.</li>
+  <li>Click the <strong>+</strong> button (top-left).</li>
+  <li>Select <strong>Add package from Git URL…</strong>.</li>
+  <li>Paste the following:</li>
+</ol>
+
+<pre><code>https://github.com/RahulLinganagoudra/com.dreamertheory.haptics.git</code></pre>
+
+<h2>🚀 Usage</h2>
+<h5>Quick Start</h5>
+<p>Just call any of the static methods from anywhere in your game:</p>
+
+<pre><code>DT.Haptics.Haptics.CanUseHaptics = false; // disables all haptic calls
+DT.Haptics.Haptics.PlayLowHaptics();
+DT.Haptics.Haptics.PlayMidHaptics();
+DT.Haptics.Haptics.PlayHeavyHaptics();
+DT.Haptics.Haptics.PlaySuperHeavyHaptics();</code></pre>
+
+</body>
+</html>
