@@ -1,23 +1,26 @@
-
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Mail, Github, Twitter, MapPin, Youtube } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Github, Twitter, Youtube } from "lucide-react";
 
 export const ContactSection = () => {
   return (
-    <section id="contact" className="py-24 px-6 bg-gradient-to-t from-devil-red-darker/50 to-transparent">
+    <section
+      id="contact"
+      className="py-24 px-6 bg-gradient-to-t from-devil-red-darker/50 to-transparent"
+    >
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-orbitron font-bold text-white mb-6 glow-text">
             Connect With Us 📞✨
           </h2>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-            Have a question, wild idea, or just want to chat about games?
-            We'd love to hear from you and connect with fellow dreamers and rebels! 😊
+            Have a question, wild idea, or just want to chat about games? We&apos;d
+            love to hear from you and connect with fellow dreamers and rebels! 😊
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          {/* Contact Info Card */}
           <Card className="glass-card border-0 rounded-3xl devil-shadow">
             <CardContent className="p-8">
               <h3 className="text-2xl font-orbitron font-bold text-white mb-6">
@@ -47,13 +50,20 @@ export const ContactSection = () => {
               </div>
 
               <div className="mt-8 pt-8 border-t border-devil-red-dark">
-                <p className="text-white font-medium mb-4">Follow Our Journey 🚀</p>
+                <p className="text-white font-medium mb-4">
+                  Follow Our Journey 🚀
+                </p>
                 <div className="flex space-x-4">
                   <Button
                     variant="outline"
                     size="sm"
                     className="border-devil-gold/30 hover:border-devil-gold/50 text-devil-gold hover:text-white rounded-full mischief-button"
-                    onClick={() => window.open('https://www.youtube.com/@DreamerTheoryIndia', '_blank')}
+                    onClick={() =>
+                      window.open(
+                        "https://www.youtube.com/@DreamerTheoryIndia",
+                        "_blank"
+                      )
+                    }
                   >
                     <Youtube size={16} className="mr-2" />
                     Youtube
@@ -62,7 +72,9 @@ export const ContactSection = () => {
                     variant="outline"
                     size="sm"
                     className="border-devil-gold/30 hover:border-devil-gold/50 text-devil-gold hover:text-white rounded-full mischief-button"
-                    onClick={() => window.open('https://x.com/Linganagou6097', '_blank')}
+                    onClick={() =>
+                      window.open("https://x.com/Linganagou6097", "_blank")
+                    }
                   >
                     <Twitter size={16} className="mr-2" />
                     Twitter
@@ -71,7 +83,9 @@ export const ContactSection = () => {
                     variant="outline"
                     size="sm"
                     className="border-devil-orange/30 hover:border-devil-orange/50 text-devil-orange hover:text-white rounded-full mischief-button"
-                    onClick={() => window.open('https://github.com/DreamerTheory', '_blank')}
+                    onClick={() =>
+                      window.open("https://github.com/DreamerTheory", "_blank")
+                    }
                   >
                     <Github size={16} className="mr-2" />
                     GitHub
@@ -81,34 +95,74 @@ export const ContactSection = () => {
             </CardContent>
           </Card>
 
+          {/* Mailchimp Subscribe Form */}
           <Card className="glass-card border-0 rounded-3xl devil-shadow">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-orbitron font-bold text-white mb-6">
-                Newsletter 📬
-              </h3>
+              <form
+                action="https://dreamertheory.us1.list-manage.com/subscribe/post?u=c677225c1bf89b6b1dc9de5fe&amp;id=7a8c98eab1&amp;f_id=00f1f5e5f0"
+                method="post"
+                target="_blank"
+                noValidate
+                className="space-y-4"
+              >
+                <h2 className="text-2xl font-semibold text-white">Subscribe</h2>
 
-              <p className="text-gray-200 mb-6">
-                Stay updated on our latest mischievous projects, behind-the-scenes chaos,
-                and exclusive early access to our upcoming games! 🎮
-              </p>
+                {/* Email */}
+                <div className="flex flex-col">
+                  <label
+                    htmlFor="mce-EMAIL"
+                    className="mb-1 font-medium text-gray-200"
+                  >
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="EMAIL"
+                    id="mce-EMAIL"
+                    required
+                    className="border p-2 rounded text-black"
+                    placeholder="Enter your email"
+                  />
+                </div>
 
-              <div className="space-y-4">
-                <input
-                  type="email"
-                  placeholder="Enter your email ✉️"
-                  className="w-full px-4 py-3 bg-devil-red-darker/50 border-2 border-devil-red/30 rounded-full text-white placeholder-gray-300 focus:outline-none focus:border-devil-gold/50 transition-colors"
-                />
-                <Button
-                  onClick={() => window.open('mailto:dreamertheory.india@gmail.com', '_blank')}
-                  className="w-full mischief-button text-white font-bold py-4 rounded-full hover:scale-105 transition-all duration-300 devil-shadow"
+                {/* Phone */}
+                <div className="flex flex-col">
+                  <label
+                    htmlFor="mce-PHONE"
+                    className="mb-1 font-medium text-gray-200"
+                  >
+                    Phone Number
+                  </label>
+                  <input
+                    type="text"
+                    name="PHONE"
+                    id="mce-PHONE"
+                    className="border p-2 rounded text-black"
+                    placeholder="Optional"
+                  />
+                </div>
+
+                {/* Anti-bot field (hidden) */}
+                <div
+                  style={{ position: "absolute", left: "-5000px" }}
+                  aria-hidden="true"
                 >
-                  Subscribe to Updates 🚀
-                </Button>
-              </div>
+                  <input
+                    type="text"
+                    name="b_c677225c1bf89b6b1dc9de5fe_7a8c98eab1"
+                    tabIndex={-1}
+                    defaultValue=""
+                  />
+                </div>
 
-              <p className="text-gray-300 text-sm mt-4">
-                We respect your privacy. Unsubscribe at any time. 🔒
-              </p>
+                {/* Submit */}
+                <button
+                  type="submit"
+                  className="bg-devil-red text-white px-4 py-2 rounded hover:bg-devil-red-dark transition"
+                >
+                  Subscribe
+                </button>
+              </form>
             </CardContent>
           </Card>
         </div>
